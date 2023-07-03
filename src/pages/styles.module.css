@@ -1,3 +1,9 @@
-.content_wrapper{
+.contentWrapper{
    margin-top: 100px;
+}
+.cardsWrapper{
+   display: flex;
+   gap: 30px;
+   flex-wrap: wrap;
+   justify-content: center;
 }

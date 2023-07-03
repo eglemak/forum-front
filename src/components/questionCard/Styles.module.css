@@ -1,0 +1,35 @@
+.card{
+    background-color: cadetblue;
+    width: 340px;
+    height: 340px;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: .3s;
+}
+
+.card:hover{
+    background-color: rgb(85, 140, 142);
+}
+
+.link{
+    text-decoration: none;
+    color: rgb(209, 216, 223);
+}
+
+.date{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.text{
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}

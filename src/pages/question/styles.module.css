@@ -1,0 +1,10 @@
+.pageWrapper{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.contentWrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-top:20px;
+}
