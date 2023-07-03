@@ -1,0 +1,25 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form input{
+    width: 60%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.title{
+    text-align: center;
+}
+
+.button{
+    padding: 6px;
+    
+}

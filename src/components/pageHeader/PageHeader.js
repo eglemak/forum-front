@@ -24,12 +24,12 @@ const PageHeader = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className={styles.link} href={`/`}>
+                        <Link className={styles.link} href={`/signup`}>
                         SignUp
                         </Link>
                     </li>
                     <li>
-                        <Link className={styles.link} href={`/`}>
+                        <Link className={styles.link} href={`/login`}>
                         LogIn
                         </Link>
                     </li>
