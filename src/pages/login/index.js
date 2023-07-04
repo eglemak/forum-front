@@ -9,6 +9,7 @@ const LoginPage = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSuccsess, setSuccess] = useState(false);
 
   const login = async () => {
     try {
@@ -20,6 +21,15 @@ const LoginPage = () => {
       console.log("response", response);
       localStorage.setItem("token", response.data.jwt);
       localStorage.setItem("userId", response.data.userId);
+
+      if (response.status === 200) {
+        setSuccess(true);
+  
+        setTimeout(() => {
+          setSuccess(false);
+          router.push("/");
+        }, 2000);
+      }
 
     } catch (err) {
       console.log("err", err);

@@ -3,7 +3,7 @@
 }
 .cardsWrapper{
    display: flex;
+   flex-direction: column;
    gap: 30px;
-   flex-wrap: wrap;
-   justify-content: center;
+   align-items: center;
 }

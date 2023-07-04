@@ -1,10 +1,44 @@
 .pageWrapper{
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
 }
 
-.contentWrapper{
+.questionWrapper{
     display: flex;
-    justify-content: space-between;
-    margin-top:20px;
+    flex-direction: column;
+    
+}
+
+ul.answersWrapper{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.answerItem{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    border: solid 1px rgb(220, 220, 220);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.likes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.button{
+    cursor: pointer;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.button:hover{
+    background-color: rgb(220, 220, 220);
 }

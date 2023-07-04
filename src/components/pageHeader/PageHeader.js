@@ -19,8 +19,8 @@ const PageHeader = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className={styles.link} href={`/`}>
-                        Create new
+                        <Link className={styles.link} href={`/newQuestion`}>
+                        New question
                         </Link>
                     </li>
                     <li>

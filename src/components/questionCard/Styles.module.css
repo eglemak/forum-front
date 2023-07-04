@@ -1,13 +1,13 @@
 .card{
     background-color: cadetblue;
-    width: 340px;
-    height: 340px;
+    width: 600px;
+    height: 100px;
     padding: 10px;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     transition: .3s;
+    margin: 0;
 }
 
 .card:hover{

@@ -9,8 +9,9 @@ const MainPage = () => {
 
   const fetchAllQuestions = async () => {
     const response = await axios.get("http://localhost:8081/questions");
+    console.log("resp1", response);
     const { data } = response;
-    console.log(response);
+    console.log("resp2", response);
     console.log(data.question);
     setQuestions(data.question);
   };
