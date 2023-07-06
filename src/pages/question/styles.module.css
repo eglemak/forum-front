@@ -18,11 +18,15 @@ ul.answersWrapper{
 
 .answerItem{
     display: flex;
-    gap: 40px;
-    align-items: center;
+    justify-content: space-between;
     border: solid 1px rgb(220, 220, 220);
     border-radius: 10px;
     padding: 16px;
+}
+.mainInfo{
+    display: flex;
+    gap: 40px;
+    align-items: center;
 }
 
 .likes{
@@ -41,4 +45,8 @@ ul.answersWrapper{
 
 .button:hover{
     background-color: rgb(220, 220, 220);
+}
+
+.trashButton{
+    /* align-self: flex-end; */
 }

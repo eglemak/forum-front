@@ -5,7 +5,10 @@
     padding-left: 50px;
     padding-right: 50px;
     align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+
+    position: sticky;
+    top: 0;
 }
 
 

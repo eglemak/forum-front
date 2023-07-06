@@ -1,9 +1,15 @@
+.wrapper{
+    display: flex;
+    border-radius: 6px;
+    /* flex-direction: row; */
+}
+
 .card{
     background-color: cadetblue;
     width: 600px;
     height: 100px;
     padding: 10px;
-    border-radius: 6px;
+    
     display: flex;
     flex-direction: column;
     transition: .3s;

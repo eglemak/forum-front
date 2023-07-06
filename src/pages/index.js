@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PageHeader from "../components/pageHeader/PageHeader";
+import PageFooter from "../components/pageFooter/PageFooter";
 import styles from "./styles.module.css";
 import QuestionCard from "@/components/questionCard/QuestionCard";
 
@@ -38,6 +39,7 @@ const MainPage = () => {
         ))}
       </div>
     </div>
+    <PageFooter/>
     </>
   );
 };
