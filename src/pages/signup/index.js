@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import axios from "axios";
 import { useRouter } from "next/router";
 import PageHeader from "@/components/pageHeader/PageHeader";
+import PageFooter from "../../components/pageFooter/PageFooter";
 
 const SignUpPage = () => {
   const router = useRouter();
@@ -34,33 +35,35 @@ const SignUpPage = () => {
   return (
     <>
       <PageHeader/>
+      <div className={styles.contentWrapper}>
+        <div className={styles.form}>
+          <input
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            placeholder="Name"
+          />
 
-      <div className={styles.form}>
-        <input
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          placeholder="Name"
-        />
+          <input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Email"
+          />
 
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          placeholder="Email"
-        />
+          <input
+            // type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Password"
+          />
 
-        <input
-          // type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          placeholder="Password"
-        />
+          <button onClick={createUser} className={styles.button}>
+            Create Account
+          </button>
 
-        <button onClick={createUser} className={styles.button}>
-          Create Account
-        </button>
-
-        {isSuccsess && <div>User was created successfully</div>}
+          {isSuccsess && <div>User was created successfully</div>}
+        </div>
       </div>
+      <PageFooter/>
     </>
   );
 };

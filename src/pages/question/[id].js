@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "./styles.module.css";
 import PageHeader from "../../components/pageHeader/PageHeader";
+import PageFooter from "../../components/pageFooter/PageFooter";
 import like from "../../assets/like.svg";
 import dislike from "../../assets/dislike.svg";
 import Link from "next/link";
@@ -49,12 +50,14 @@ const Question = () => {
 
     const deleteAnswer = async (id, answerId) => {
         const userToken = localStorage.getItem("token");
+        const questionId = id;
         const headers = {
             'Authorization': userToken
         }
-        const response = await axios.delete(`http://localhost:8081/question/${id}/answer/${answerId}`, 
-            {headers: headers}
-        );
+        const response = await axios.delete(`http://localhost:8081/question/${id}/answer/${answerId}`, {
+            headers: headers,
+            data: { questionId: questionId }
+        });
         router.reload();
     };
 
@@ -113,6 +116,7 @@ const Question = () => {
 
         )}
         </div>
+        <PageFooter/>
     </>
   );
 };

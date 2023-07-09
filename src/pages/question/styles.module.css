@@ -3,6 +3,11 @@
     padding-right: 60px;
 }
 
+.contentWrapper{
+    min-height:  calc(100vh - 150px);
+    padding-left: 50px;
+ }
+
 .questionWrapper{
     display: flex;
     flex-direction: column;
@@ -50,3 +55,11 @@ ul.answersWrapper{
 .trashButton{
     /* align-self: flex-end; */
 }
+
+
+@media only screen and (max-width: 800px) {
+    .answerItem{
+        flex-direction: column;
+        gap: 10px;
+    } 
+  }

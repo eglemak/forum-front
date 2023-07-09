@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import PageHeader from "../../components/pageHeader/PageHeader";
 import axios from "axios";
 import { useRouter } from "next/router";
+import PageFooter from "../../components/pageFooter/PageFooter";
 
 const NewQuestionPage = () => {
   const router = useRouter();
@@ -27,18 +28,21 @@ const NewQuestionPage = () => {
   };
 
   return (
-    <div>
+    <>
       <PageHeader/>
-      <div className={styles.form}>
-        <input
-          value={question}
-          onChange={(event) => setQuestion(event.target.value)}
-          placeholder="Your question"
-        />
+      <div className={styles.contentWrapper}>
+        <div className={styles.form}>
+          <input
+            value={question}
+            onChange={(event) => setQuestion(event.target.value)}
+            placeholder="Your question"
+          />
 
-        <button onClick={() => addNewQuestion()}>Add</button>
+          <button onClick={() => addNewQuestion()}>Add</button>
+        </div>
       </div>
-    </div>
+      <PageFooter/>
+    </>
   );
 };
 

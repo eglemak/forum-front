@@ -1,3 +1,8 @@
+.contentWrapper{
+    min-height:  calc(100vh - 150px);
+    padding-left: 50px;
+ }
+
 .form{
     display: flex;
     flex-direction: column;

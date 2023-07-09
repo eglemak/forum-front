@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import axios from "axios";
 import { useRouter } from "next/router";
 import PageHeader from "@/components/pageHeader/PageHeader";
+import PageFooter from "../../components/pageFooter/PageFooter";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -39,26 +40,29 @@ const LoginPage = () => {
   return (
     <>
       <PageHeader/>
-      <h3 className={styles.title}>Login</h3>
+      <div className={styles.contentWrapper}>
+        <h3 className={styles.title}>Login</h3>
 
-      <div className={styles.form}>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          placeholder="Email"
-        />
+        <div className={styles.form}>
+          <input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Email"
+          />
 
-        <input
-          // type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          placeholder="Password"
-        />
-        <button onClick={login} className={styles.button}>
-          Login
-        </button>
+          <input
+            // type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Password"
+          />
+          <button onClick={login} className={styles.button}>
+            Login
+          </button>
 
+        </div>
       </div>
+      <PageFooter/>
     </>
   );
 };

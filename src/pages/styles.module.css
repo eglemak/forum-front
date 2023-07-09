@@ -1,6 +1,26 @@
+.contentWrapper{
+   min-height:  calc(100vh - 150px);
+   padding-left: 50px;
+}
+
 .cardsWrapper{
    display: flex;
    flex-direction: column;
    gap: 30px;
    align-items: center;
 }
+
+.filterOptions {
+   display: flex;
+   gap: 10px;
+   margin-bottom: 20px;
+ }
+ 
+ .filterOptions label {
+   display: flex;
+   align-items: center;
+ }
+ 
+ .filterOptions input[type="checkbox"] {
+   margin-right: 5px;
+ }

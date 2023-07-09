@@ -4,6 +4,7 @@ import PageHeader from "../../components/pageHeader/PageHeader";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import PageFooter from "../../components/pageFooter/PageFooter";
 
 const NewAnswerPage = () => {
   const router = useRouter();
@@ -30,18 +31,21 @@ const NewAnswerPage = () => {
   };
 
   return (
-    <div>
+    <>
       <PageHeader/>
-      <div className={styles.form}>
-        <input
-          value={answer}
-          onChange={(event) => setAnswer(event.target.value)}
-          placeholder="Your answer"
-        />
+      <div className={styles.contentWrapper}>
+        <div className={styles.form}>
+          <input
+            value={answer}
+            onChange={(event) => setAnswer(event.target.value)}
+            placeholder="Your answer"
+          />
 
-        <button onClick={() => addNewAnswer()}>Add</button>
+          <button onClick={() => addNewAnswer()}>Add</button>
+        </div>
       </div>
-    </div>
+      <PageFooter/>
+    </>
   );
 };
 
