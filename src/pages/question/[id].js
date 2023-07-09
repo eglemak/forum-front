@@ -9,43 +9,66 @@ import Link from "next/link";
 import trash from "../../assets/trash.svg";
 
 const Question = () => {
-  const [question, setQuestion] = useState();
-  const router = useRouter();
-  const questionData = router.query;
+    const [question, setQuestion] = useState();
+    const [likeChanged, setLikeChanged] = useState(false);
+    const router = useRouter();
+    const questionData = router.query;
+    console.log("router.query", router.query.id)
 
-  const fetchQuestion = async () => {
-    const response = await axios.get(
-      `http://localhost:8081/question/${router.query.id}/answers`
-    );
+    const fetchQuestion = async () => {
+        const response = await axios.get(
+        `http://localhost:8081/question/${router.query.id}/answers`
+        );
 
-    const { data } = response;
-    setQuestion(data.response);
-    console.log("response", response);
-  };
+        const { data } = response;
+        setQuestion(data.response);
+        console.log("response", response);
+    };
+
+    const updateLike = async (id, answerId, number) => {
+        const userToken = localStorage.getItem("token");
+        const headers = {
+            'Authorization': userToken
+        }
+        console.log("headers", headers);
+        console.log("number", number);
+
+        try {
+            const response = await axios.put(`http://localhost:8081/question/${id}/answer/${answerId}`,
+            
+            {gainedLikes: number},
+            {headers: headers}
+        );
+        setLikeChanged(!likeChanged);
+        console.log("response", response);
+        } catch (error) {
+            console.log("Error updating like:", error);
+        }
+    };
 
 
+    const deleteAnswer = async (id, answerId) => {
+        const userToken = localStorage.getItem("token");
+        const headers = {
+            'Authorization': userToken
+        }
+        const response = await axios.delete(`http://localhost:8081/question/${id}/answer/${answerId}`, 
+            {headers: headers}
+        );
+        router.reload();
+    };
 
-const deleteAnswer = async (id, answerId) => {
+    useEffect(() => {
+        router.query.id && fetchQuestion();
+    }, [router.query.id]);
 
-    const userToken = localStorage.getItem("token");
-    const headers = {
-  'Authorization': userToken
-}
-    console.log("id", id);
-    console.log("answerId", answerId);
-    console.log(userToken);
-    const response = await axios.delete(`http://localhost:8081/question/${id}/answer/${answerId}`, 
-        {headers: headers}
-    );
-
-    console.log("response", response);
+    useEffect(() => {
+        if (likeChanged) {
+          fetchQuestion();
+          setLikeChanged(false);
+        }
+      }, [likeChanged]);
     
-    router.reload();
-  };
-
-  useEffect(() => {
-    router.query.id && fetchQuestion();
-  }, [router.query.id]);
 
   return (
     <>
@@ -69,9 +92,9 @@ const deleteAnswer = async (id, answerId) => {
                         <li className={styles.answerItem} key={idx}>
                             <div className={styles.mainInfo}>
                                 <div className={styles.likes}>
-                                    <img className={styles.button} src={like.src} />
+                                    <img onClick={() => updateLike(question.id, item.id, 1)} className={styles.button} src={like.src} />
                                     {item.gainedLikes}
-                                    <img className={styles.button} src={dislike.src} />
+                                    <img onClick={() => updateLike(question.id, item.id, -1)} className={styles.button} src={dislike.src} />
                                 </div>
                                 <div className={styles.info}>
                                     {item.answerText}
